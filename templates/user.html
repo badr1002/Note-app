@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block body %}
+{% for user in users %}
+<h1 style="color: aliceblue">Hello, {{ user.name }}</h1>
+<span class="badge badge-primary mr-2"> EMAIL: {{ user.email }}</span>
+<img width="200px" height="200px" src="{{ user.image }}" alt="...">
+<span class="badge badge-danger mr-2">
+ WEBSITE: <a href="{{ user.url }}">{{ user.url }}</a>
+</span>
+    <button data-id="{{ user.id }}" id="delete" class="btn btn-danger mr-2 mt-2">Delete</button>
+{% endfor %}
+    <script>
+    const del=document.getElementById('delete').onclick=(e)=>{
+        const userID=e.target.dataset['id'];
+        fetch(`/user/${userID}`,{method: 'DELETE'})
+            .then(()=>window.location.assign('http://127.0.0.1:5000/'))
+            .catch(err=>{console.log('ERROR: ',err)});
+    }
+    </script>
+{% endblock %}

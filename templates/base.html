@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
+    <style>
+    .input{
+        margin-bottom: 50px;
+    background-color: black;
+    color: #3a960b;
+    font-size:large;
+    font-weight: bold;
+    border-radius: 10px;
+ border: none;
+        height: 40px;
+        text-align: center;
+      }
+    .input:focus{
+    background-color: black;
+    color: #1aa761;
+    font-size:large;
+    font-weight: bold;
+    border-radius: 10px;
+        text-align: center;
+
+    }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}"/>
+</head>
+<body>
+{% block body %}
+
+{% endblock %}
+</body>
+</html>
